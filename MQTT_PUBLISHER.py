@@ -27,7 +27,6 @@ def on_message(client, userdata, message):
 
 client1 = paho.Client("control1")  # create client object
 client1.on_publish = on_publish  # assign function to callback
-# client1.username_pw_set(ACCESS_TOKEN)  # access token from thingsboard device
 client1.connect(broker, port, keepalive=60)  # establishing connection
 client1.on_message = on_message
 client1.on_connect = on_connect
@@ -38,5 +37,4 @@ while True:
     ret = client1.publish(topic, payload)  # topic name is test
     print(payload)
     print('_________________')
-    #print("Please check data on your Subscriber Code \n")
-    time.sleep(2)
+    time.sleep(5)
